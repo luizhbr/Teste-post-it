@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quadro de Post-its</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Bloco de Notas em Post-it</h1>
+    <p>Crie, organize e fixe suas ideias em post-its coloridos.</p>
+  </header>
+
+  <main class="container">
+    <section class="note-form" aria-labelledby="form-title">
+      <div class="form-header">
+        <h2 id="form-title">Novo post-it</h2>
+        <div class="color-choices" role="list">
+          <label for="color">Cor:</label>
+          <select id="color" aria-label="Cor do post-it">
+            <option value="#f7d154" selected>Amarelo</option>
+            <option value="#f48c42">Laranja</option>
+            <option value="#6bd1ff">Azul claro</option>
+            <option value="#5efc82">Verde</option>
+            <option value="#ff7ac3">Rosa</option>
+            <option value="#c8a5ff">Lavanda</option>
+          </select>
+        </div>
+      </div>
+      <label class="field">
+        <span>Título</span>
+        <input type="text" id="title" name="title" placeholder="Resumo da ideia" maxlength="60" required />
+      </label>
+      <label class="field">
+        <span>Conteúdo</span>
+        <textarea id="content" name="content" rows="4" placeholder="Detalhes ou lembretes" required></textarea>
+      </label>
+      <div class="actions">
+        <button type="button" id="save">Fixar post-it</button>
+        <button type="button" id="clear">Limpar</button>
+      </div>
+    </section>
+
+    <section class="board" aria-live="polite" aria-label="Quadro de post-its">
+      <div class="empty" id="empty-message">Nenhum post-it por aqui. Crie o primeiro!</div>
+      <div class="notes" id="notes"></div>
+    </section>
+  </main>
+
+  <template id="note-template">
+    <article class="note" tabindex="0">
+      <div class="pin" aria-hidden="true"></div>
+      <header class="note-header">
+        <h3 class="note-title"></h3>
+        <button class="delete" aria-label="Remover post-it">✕</button>
+      </header>
+      <p class="note-content"></p>
+      <footer class="note-footer"></footer>
+    </article>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
